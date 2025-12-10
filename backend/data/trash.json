@@ -1,0 +1,21 @@
+[
+  {
+    "notification_id": "4b9dce8d-78b4-40e5-8705-0265deeb47f5",
+    "event_type": "OTP",
+    "delivered_via": "Email",
+    "attempts": [
+      {
+        "channel": "SMS",
+        "status": "FAILED",
+        "reason": "forced_primary_failure_demo_mode"
+      },
+      {
+        "channel": "Email",
+        "status": "SUCCESS",
+        "reason": "delivered",
+        "fail_prob": 0.3
+      }
+    ],
+    "timestamp": "2025-12-10T17:34:12.071336+05:30"
+  }
+]

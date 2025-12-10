@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Trusted Notifications Prototype</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <script defer src="{{ url_for('static', filename='app.js') }}"></script>
+</head>
+<body>
+
+<div class="app-container">
+
+    <!-- Sidebar Navigation -->
+    <div class="sidebar">
+        <h2>Trusted Notifications</h2>
+        <button class="tab-btn active" data-tab="send">
+            <span class="nav-icon">▶️</span> Send Notification</button>
+        <button class="tab-btn" data-tab="timeline">
+            <span class="nav-icon">📈</span> Attempts Timeline</button>
+        <button class="tab-btn" data-tab="inbox">
+            <span class="nav-icon">📥</span> Secure Inbox</button>
+        <button class="tab-btn" data-tab="raw">
+            <span class="nav-icon code-icon">&lt;/&gt;</span> Raw Response</button>
+        <button class="tab-btn" data-tab="trash">
+            <span class="nav-icon">🗑️</span> Secure Trash Bin
+        </button>
+    </div>
+
+    <!-- Main Content -->
+    <div class="content">
+
+        <!-- SEND TAB -->
+        <div class="tab-content" id="send">
+            <div class="centered-container">
+
+                <div class="card-box square-card">
+                    <div class="card-header">Select Event Type</div>
+                    <div class="card-content input-area">
+                        <div class="input-row">
+                            <select id="eventType">
+                                <option>OTP</option>
+                                <option>Transaction OTP</option>
+                                <option>Fraud Alert</option>
+                                <option>Monthly Statement</option>
+                                <option>Payment Confirmation</option>
+                            </select>
+                            <button id="sendBtn">Send</button>
+                        </div>
+
+                        <div class="demo-toggle-row">
+                            <label class="switch">
+                                <input type="checkbox" id="demoToggle">
+                                <span class="slider"></span>
+                            </label>
+                            <span class="demo-label">Force Primary Channel Failure (Demo Mode)</span>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="card-box square-card">
+                    <div class="card-header">
+                        Event Metadata
+                        <button id="toggleMetadataBtn" class="meta-toggle-btn">Show</button>
+                    </div>
+                    <div class="card-content metadata-panel" id="metadataPanel" style="display:none;">
+                        <div><strong>Primary Channel:</strong> <span id="primaryChannel">-</span></div>
+                        <div><strong>Retry Score:</strong> <span id="retryScore">-</span></div>
+                        <div><strong>Retry %:</strong> <span id="retryPercent">-</span></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- TIMELINE TAB -->
+        <div class="tab-content" id="timeline" style="display:none;">
+            <h2>Attempts Timeline</h2>
+            <div id="attemptsBox" class="card-box"></div>
+        </div>
+
+        <!-- INBOX TAB -->
+        <div class="tab-content" id="inbox" style="display:none;">
+            <h2 class="secure-heading">📥 Secure Inbox</h2>
+            <div class="inbox-controls">
+                <button id="loadInboxBtn" class="inbox-btn">🔄 Load Inbox</button>
+                <button id="clearInboxBtn" class="clear-btn">🗑️ Clear Inbox</button>
+                <input id="searchInbox" class="search-input" 
+                        type="text" placeholder="Search by event type... (OTP, Fraud, Payment)">
+            </div>
+            <div id="inboxBox"></div>
+        </div>
+
+        <!-- TRASH TAB -->
+        <div class="tab-content" id="trash" style="display:none;">
+            <h2>🗑️ Secure Trash Bin</h2>
+
+            <button id="loadTrashBtn" class="inbox-btn">🔄 Load Trash</button>
+            <button id="emptyTrashBtn" class="clear-btn">♻️ Empty Trash</button>
+
+            <div id="trashBox"></div>
+        </div>
+
+
+        <!-- RAW RESPONSE TAB -->
+        <div class="tab-content" id="raw" style="display:none;">
+            <h2>Raw Response</h2>
+            <div id="rawContainer" class="card-box">
+                <pre id="responseBox" style="white-space: pre-wrap;"></pre>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<div id="toast" class="toast"></div>
+
+</body>
+</html>
+
+

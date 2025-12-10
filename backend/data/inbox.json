@@ -1,0 +1,45 @@
+[
+  {
+    "notification_id": "b7a85223-334b-43f4-86f1-fb09a7515d8b",
+    "event_type": "OTP",
+    "delivered_via": "Email",
+    "attempts": [
+      {
+        "channel": "SMS",
+        "status": "FAILED",
+        "reason": "forced_primary_failure_demo_mode"
+      },
+      {
+        "channel": "Email",
+        "status": "SUCCESS",
+        "reason": "delivered",
+        "fail_prob": 0.3
+      }
+    ],
+    "timestamp": "2025-12-10T17:37:24.903872+05:30"
+  },
+  {
+    "notification_id": "64f0b61a-9925-475f-9fcc-a01c47fb82d7",
+    "event_type": "OTP",
+    "delivered_via": "Inbox",
+    "attempts": [
+      {
+        "channel": "SMS",
+        "status": "FAILED",
+        "reason": "forced_primary_failure_demo_mode"
+      },
+      {
+        "channel": "Email",
+        "status": "FAILED",
+        "reason": "simulated_failure (fail_prob=0.30)",
+        "fail_prob": 0.3
+      },
+      {
+        "channel": "Inbox",
+        "status": "SUCCESS",
+        "reason": "forced_final_fallback"
+      }
+    ],
+    "timestamp": "2025-12-10T18:55:01.915693+05:30"
+  }
+]
